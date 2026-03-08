@@ -1,3 +1,5 @@
+// This is a JavaScript file
+
 // ==========================================
 // BUBBLE BOMB: Mobile Optimized Edition
 // ==========================================
