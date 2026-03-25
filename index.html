@@ -4,21 +4,43 @@
     <link rel="manifest" href="manifest.json">
     <link rel="icon" href="icon-192.png" type="image/png">
     
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5599322299160416"
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5599322299160416"
      crossorigin="anonymous"></script>
-<script>
-  if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('sw.js');
-  }
-</script>
+
+    <script>
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('sw.js');
+      }
+    </script>
 
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Bubble Bomb</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.0/p5.min.js"></script>
+    
     <style>
-        body { margin: 0; padding: 0; display: flex; justify-content: center; align-items: center; height: 100vh; background-color: #1A2533; }
-        canvas { box-shadow: 0 0 20px rgba(0,0,0,0.5); }
+        /* 画面全体のスクロールを禁止し、背景色を設定 */
+        body { 
+            margin: 0; 
+            padding: 0; 
+            background-color: #1A2533; 
+            overflow: hidden; /* 余計なスクロールを消す */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            width: 100vw;
+            position: fixed; /* iPhoneのメニューバー等によるズレを防止 */
+        }
+
+        /* ゲーム画面（Canvas）を強制的に中央へ */
+        canvas { 
+            display: block;
+            box-shadow: 0 0 20px rgba(0,0,0,0.5);
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain; /* 画面に収まるように調整 */
+        }
     </style>
 </head>
 <body>
