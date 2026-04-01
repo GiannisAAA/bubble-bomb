@@ -18,30 +18,31 @@
     <title>Bubble Bomb</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.0/p5.min.js"></script>
     
-    <style>
-        /* 画面全体のスクロールを禁止し、背景色を設定 */
-        body { 
-            margin: 0; 
-            padding: 0; 
-            background-color: #1A2533; 
-            overflow: hidden; /* 余計なスクロールを消す */
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            width: 100vw;
-            position: fixed; /* iPhoneのメニューバー等によるズレを防止 */
+        <style>
+        /* 画面全体の基準を作る */
+        html, body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #1A2533;
+            overflow: hidden; /* スクロールを完全に禁止 */
+            position: fixed; /* iPhoneのメニューバーによるガタつきを防止 */
         }
 
-        /* ゲーム画面（Canvas）を強制的に中央へ */
-        canvas { 
-            display: block;
+        /* p5.jsが作るcanvas要素を強制的に画面の真ん中に置く */
+        canvas {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%); /* 自身のサイズの半分だけ戻して真ん中に */
             box-shadow: 0 0 20px rgba(0,0,0,0.5);
-            max-width: 100%;
-            max-height: 100%;
-            object-fit: contain; /* 画面に収まるように調整 */
+            max-width: 100vw;
+            max-height: 100vh;
+            object-fit: contain;
         }
     </style>
+
 </head>
 <body>
     <script src="sketch.js"></script>
